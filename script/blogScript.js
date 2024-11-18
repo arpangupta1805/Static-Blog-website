@@ -1,4 +1,3 @@
-// Function to store the blog data in localStorage
 function storeBlog() {
   let inputBlogImage = document.getElementById("file");
   let inputBlogId = 0;
@@ -66,12 +65,12 @@ function showBlogs() {
 
       blogItem.innerHTML = `
                 <h3 class="blog-title">${blogObj.title}</h3>
+                <p class="blog-text">${blogObj.blog}</p>
                 ${
                   blogObj.image
                     ? `<img src="${blogObj.image}" alt="Blog Image" class="blog-image"/>`
                     : ""
                 }
-                <p class="blog-text">${blogObj.blog}</p>
                 <p class="blog-username">By ${blogObj.username}</p>
             `;
       blogsContainer.appendChild(blogItem);
