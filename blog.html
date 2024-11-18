@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Here you can see all blogs</title>
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+    <nav>
+        <img src = "logo.png" alt="'website logo">
+        <p>Static Blogger</p>
+        <ul>
+            <li><a href = 'main.html'>Home</a></li>
+            <li><a href='blog.html'>Blogs</a></li>
+            <li><a href = "about.html">About</a></li>
+            <li><a href = "create.html">Create-Blog</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Blogs</h2>
+        <div id="blogs"></div>
+    </main>
+
+    <script src="script/blogScript.js"></script>
+    <script>
+        window.onload = showBlogs;
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Listing</title>
+  <style>
+    /* CSS Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+
+    .blog-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+      margin: 15px 0;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .blog-title {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    .blog-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .blog-username {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 5px 0 15px;
+    }
+
+    .read-more {
+      text-decoration: none;
+      color: #007BFF;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* Pop-up (iframe) Styling */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      overflow: auto;
+      padding: 20px;
+    }
+
+    #popup .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.2rem;
+      color: #333;
+      cursor: pointer;
+    }
+
+    #popup .popup-close:hover {
+      color: #d9534f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="blogs"> -->
+     <!-- Blogs will be loaded here dynamically -->
+  <!-- </div>
+
+  <-- Pop-up -->
+  <!-- <div id="popup">
+    <span class="popup-close" onclick="closePopup()">×</span>
+    <div id="popup-content"> -->
+      <!-- Content will be dynamically loaded -->
+    <!-- </div>
+  </div>
+
+  <script> -->
+    <!-- // Load blogs dynamically
+    function showBlogs() {
+      let blogsContainer = document.getElementById("blogs");
+      blogsContainer.innerHTML = "";
+
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key.startsWith("blog-")) {
+          let blogId = key.split('-')[1];
+          let blogObj = JSON.parse(localStorage.getItem(`blog-${blogId}`));
+
+          let blogItem = document.createElement("div");
+          blogItem.classList.add("blog-item");
+
+          blogItem.innerHTML = `
+            ${
+              blogObj.image
+                ? `<img src="${blogObj.image}" alt="Blog Image" class="blog-image"/>`
+                : ""
+            }
+            <h3 class="blog-title">${blogObj.title}</h3>
+            <p class="blog-username">By ${blogObj.username}</p>
+            <a class="read-more" onclick="openPopup(${blogId})">Read more</a>
+          `;
+
+          blogsContainer.appendChild(blogItem);
+        }
+      }
+    }
+
+    // Open pop-up with blog details
+    function openPopup(blogId) {
+      let blogObj = JSON.parse(localStorage.getItem(`blog-${blogId}`));
+      let popupContent = document.getElementById("popup-content");
+
+      popupContent.innerHTML = `
+        <h2>${blogObj.title}</h2>
+        ${
+          blogObj.image
+            ? `<img src="${blogObj.image}" alt="Blog Image" style="width:100%; margin-bottom:15px;"/>`
+            : ""
+        }
+        <p style="color: #555;">By ${blogObj.username}</p>
+        <p>${blogObj.blog}</p>
+      `;
+
+      document.getElementById("popup").style.display = "block";
+    }
+
+    // Close pop-up
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    // Load blogs on page load
+    document.addEventListener("DOMContentLoaded", showBlogs);
+  </script>
+</body>
+</html> -->

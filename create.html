@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You can create your blog and publish it.</title>
+    <link rel="stylesheet" href="create.css" />
+    <link rel="stylesheet" href="nav.css">
+  </head>
+  <body>
+    <nav>
+      <img src="logo.png" alt="'website logo" />
+      <p>Static Blogger</p>
+      <ul>
+        <li><a href="main.html">Home</a></li>
+        <li><a href="blog.html">Blogs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="create.html">Create-Blog</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Create Your Blog</h2>
+      <form id="form">
+        <label>Name: 
+          <input id="name" name="username" type="text" placeholder="Enter your name." required size="25" minlength="1">
+        </label>
+        <label
+          >Title Of Blog:
+          <input
+            id="title"
+            name="title"
+            type="text"
+            placeholder="Enter your blog title."
+            required
+          />
+        </label>
+        <label
+          >Start your Blog:
+          <textarea
+            name="blog"
+            id="blog"
+            cols="30"
+            rows="20"
+            placeholder="Enter your blog."
+          ></textarea>
+        </label>
+        <label
+          >Upload Image describing Blog:
+          <input id="file" type="file" accept="image/png, image/jpeg" />
+        </label>
+        <input id="submit" type="submit" value="Submit" />
+        <p id="message" style="color: red;"></p>
+      </form>
+      <p>This is for testing only. Use this only when you are not able to upload your blog.</p>
+      <button onclick="localStorage.clear(); alert('All Blogs are Deleted');">Delete All Blogs</button>
+
+    </main>
+
+    <script src="script/blogScript.js"></script>
+    <script>
+      document.getElementById("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        storeBlog();
+      });
+    </script>
+    <script>
+        const fileInput = document.getElementById('file');
+        const form = document.getElementById('form');
+        const message = document.getElementById('message');
+    
+        form.addEventListener('submit', (event) => {
+          const file = fileInput.files[0];
+          const maxSize = 200 * 1024; // 200KB
+    
+          if (file && file.size > maxSize) {
+            event.preventDefault();
+            message.textContent = 'File size exceeds 200Kb. Please upload a smaller file.';
+          } else {
+            message.textContent = ''; // Clear the message if the size is acceptable
+          }
+        });
+      </script>
+  </body>
+</html>
